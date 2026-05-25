@@ -24,7 +24,7 @@ client = tweepy.Client(bearer_token, consumer_key, consumer_key_secret, access_t
 
 def lav_tweet(temp_klokken_tolv):
     if temp_klokken_tolv > 15:
-        client.create_tweet(text="xdd")
+        client.create_tweet(text="Ja det er en farlig dag at være en kold øl på")
     else:
         client.create_tweet(text="Nej i dag er ikke en farlig dag at være en kold øl på")
 
