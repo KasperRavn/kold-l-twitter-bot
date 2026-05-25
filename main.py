@@ -1,6 +1,7 @@
 import requests
 import tweepy
 import os
+from dotenv import load_dotenv
 
 
 BASE_URL = "https://api.open-meteo.com/v1/forecast?latitude=55.6759&longitude=12.5655&hourly=temperature_2m&timezone=auto"

@@ -1,19 +1,25 @@
-name: twitter bot.py
+name: twitter bot
+
 on: [push]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - name: load content
-              uses: actions/checkout@v2
-              
-            - name: load python
-              uses: actions/setup-python@v4
-              with:
-                python-version: '3.10' # install the python version needed
+  build:
+    runs-on: ubuntu-latest
 
-            - name: start bot
-              env:
-                SECRET: ${{ secrets.ENV_FILE }}
-              run: python main.py
+    steps:
+      - name: load content
+        uses: actions/checkout@v2
+
+      - name: load python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: install packages
+        run: pip install -r requirements.txt
+
+      - name: create .env file
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+
+      - name: start bot
+        run: python main.py
