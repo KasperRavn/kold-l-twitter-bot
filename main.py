@@ -25,7 +25,8 @@ billeder_kold_dag = [
     "billederkold/unnamed.jpg"
 ]
 
-tilfældigt_tal= random.randint(0,9)
+tilfældigt_tal_varm = random.randint(0,9)
+tilfældigt_tal_kold = random.randint(0,4)
 
 
 BASE_URL = "https://api.open-meteo.com/v1/forecast?latitude=55.6759&longitude=12.5655&hourly=temperature_2m&timezone=auto"
@@ -56,8 +57,8 @@ api = tweepy.API(auth, wait_on_rate_limit=True)
 
 
 BASE_DIR = os.path.dirname(__file__)
-fil_varm = os.path.join(BASE_DIR, billeder_varm_dag[tilfældigt_tal])
-fil_kold = os.path.join(BASE_DIR, billeder_kold_dag[tilfældigt_tal])
+fil_varm = os.path.join(BASE_DIR, billeder_varm_dag[tilfældigt_tal_varm])
+fil_kold = os.path.join(BASE_DIR, billeder_kold_dag[tilfældigt_tal_kold])
 
 
 
