@@ -1,19 +1,22 @@
 name: twitter bot
 
-on: [push]
+on:
+  schedule:
+    - cron: "5 * * * *"
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: load content
-        uses: actions/checkout@v2
+      - name: checkout repo
+        uses: actions/checkout@v4
 
-      - name: load python
+      - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       - name: install packages
         run: pip install -r requirements.txt
@@ -21,5 +24,5 @@ jobs:
       - name: create .env file
         run: echo "${{ secrets.ENV_FILE }}" > .env
 
-      - name: start bot
+      - name: run bot
         run: python main.py
