@@ -65,10 +65,10 @@ fil_kold = os.path.join(BASE_DIR, billeder_kold_dag[tilfældigt_tal_kold])
 def lav_tweet(temp_klokken_tolv):
     if temp_klokken_tolv > 15:
         media_id_varm = api.media_upload(filename=fil_varm).media_id_string
-        client.create_tweet(text="Ja i dag er en farlig dag at være en kold øl på", media_ids=[media_id_varm])
+        client.create_tweet(text="Ja i dag er det en farlig dag, at være en kold øl på", media_ids=[media_id_varm])
     else:
         media_id_kold = api.media_upload(filename=fil_kold).media_id_string
-        client.create_tweet(text="Nej i dag er ikke en farlig dag at være en kold øl på", media_ids=[media_id_kold])
+        client.create_tweet(text="Nej i dag er det ikke en farlig dag, at være en kold øl på", media_ids=[media_id_kold])
 
 
 lav_tweet(temp_klokken_tolv)
